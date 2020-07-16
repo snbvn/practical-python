@@ -16,7 +16,7 @@ def read_portfolio(filename):
             portfolio.append(stock)
     return portfolio
 
-def read_proces(filename):
+def read_prices(filename):
     prices={}             
     import csv         
     f=open(filename,'r')
@@ -27,3 +27,14 @@ def read_proces(filename):
         except IndexError:
             pass
     return prices
+portfolio = read_portfolio('Data/portfolio.csv')
+prices    = read_prices('Data/prices.csv')
+totalcost=0
+totalvalue=0
+for i in portfolio:
+    totalcost += i['shares']*i['price']
+print('Total Cost:', totalvalue)
+for shares in portfolio:
+    totalvalue += prices[shares['name']] *shares['shares']
+print('Current Value:', totalvalue)
+print ('Gain:',totalvalue-totalcost)
