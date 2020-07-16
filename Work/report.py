@@ -15,3 +15,15 @@ def read_portfolio(filename):
                 }
             portfolio.append(stock)
     return portfolio
+
+def read_proces(filename):
+    prices={}             
+    import csv         
+    f=open(filename,'r')
+    rows=csv.reader(f)
+    for row in rows:
+        try:
+            prices[row[0]]=float(row[1])
+        except IndexError:
+            pass
+    return prices
