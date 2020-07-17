@@ -38,3 +38,16 @@ for shares in portfolio:
     totalvalue += prices[shares['name']] *shares['shares']
 print('Current Value:', totalvalue)
 print ('Gain:',totalvalue-totalcost)
+
+def make_report(portfolio,prices):
+    reporttuple=[]
+    for i in portfolio:
+        row = (i['name'], i['shares'], prices[i['name']],(prices[i['name']]-i['price']))
+        reporttuple.append(row)
+    return reporttuple  
+report = make_report(portfolio,prices)  
+header = ('Name', 'Shares', 'Price', 'Change')
+print('%10s %10s %10s %10s' % header)
+print(('-' * 10 + ' ') * 4)
+for row in report:
+    print('%10s %10d %10.2f %10.2f' % row)
