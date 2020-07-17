@@ -48,8 +48,8 @@ def make_report(portfolio,prices):
 report = make_report(portfolio,prices)  
 header = ('Name', 'Shares', 'Price', 'Change')
 print(f'{header[0]:>10s} {header[1]:>10s} {header[2]:>10s} {header[3]:>10s}')
-print(f'{"-"*10:>10s} {"-"*10:>10s} {"-"*10:>10s} {"-"*10:>10s}')
+print(f'{"-"*10:>10s} {"-"*10:>10s} {"-"*11:>11s} {"-"*10:>10s}')
 #print('%10s %10s %10s %10s' % header)
 #print(('-' * 10 + ' ') * 4)
 for row in report:
-    print('%10s %10d %10.2f %10.2f' % row)
+    print(f'{ row[0]:>10s} {row[1]:>10d} {f"${row[2]:.2f}":>10} {row[3]:>10.2f}')
