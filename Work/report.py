@@ -46,8 +46,9 @@ def make_report(portfolio,prices):
         reporttuple.append(row)
     return reporttuple  
 report = make_report(portfolio,prices)  
-header = ('Name', 'Shares', 'Price', 'Change')
-print('%10s %10s %10s %10s' % header)
-print(('-' * 10 + ' ') * 4)
+#header = ('Name', 'Shares', 'Price', 'Change')
+#print(f'{header[0]:>10s} {header[1]:>10s} {header[2]:>10s} {header[3]:>10s}')
+#print('%10s %10s %10s %10s' % header)
+#print(('-' * 10 + ' ') * 4)
 for row in report:
     print('%10s %10d %10.2f %10.2f' % row)
