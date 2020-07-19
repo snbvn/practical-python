@@ -31,7 +31,7 @@ def portfolio_cost(filename):
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
-    filename = 'Data/portfoliodate.csv'
+    filename = input('Enter a filename:')
 
 cost = portfolio_cost(filename)
 print('Total cost:', cost)
