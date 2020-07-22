@@ -1,5 +1,7 @@
+#Libraries
 import report
 
+#functions
 def portfolio_cost(filename):
     '''
     Computes the total cost (shares*price) of a portfolio file

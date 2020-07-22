@@ -2,14 +2,14 @@ import csv
 
 def parse_csv(lines, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):
     '''
-    Parse a CSV file into a list of records with type conversion.
+    Parse a CSV file.
     '''
     if select and not has_headers:
-        raise RuntimeError('select requires column headers')
+        raise RuntimeError('column headers')
 
     rows = csv.reader(lines, delimiter=delimiter)
 
-    # Read the file headers (if any)
+    # file headers 
     headers = next(rows) if has_headers else []
 
     # If specific columns have been selected, make indices for filtering and set output columns
@@ -22,7 +22,7 @@ def parse_csv(lines, select=None, types=None, has_headers=True, delimiter=',', s
         if not row:     # Skip rows with no data
             continue
 
-        # If specific column indices are selected, pick them out
+        # pick column 
         if select:
             row = [ row[index] for index in indices]
 
