@@ -1,9 +1,15 @@
 import csv
-
-def parse_csv(lines, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):
+import gzip
+def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False, is_zip=False):
     '''
     Parse a CSV file.
     '''
+    if is_zip:
+        lines= gzip.open(filename, 'rt')
+    else:
+        lines= open(filename)
+
+                  
     if select and not has_headers:
         raise RuntimeError('column headers')
 
